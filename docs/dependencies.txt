@@ -1,0 +1,42 @@
+UC2
+└─┬──pkg-config
+  │
+  ├──lcms2
+  │
+  ├─┬cairo
+  │ ├─pixman
+  │ ├─freetype
+  │ └┬libpng
+  │  └─zlib
+
+pango
+    glib
+        pcre
+        zlib
+        libffi
+        gettext
+    fontconfig
+        freetype
+    cairo
+    fribidi
+    libharfbuzz
+        libgraphite
+    libthai
+        libdatrie
+
+ImageMagick
+    jbigkit
+    libjpeg-turbo
+    liblqr
+    libxml2
+        icu4c
+    tiff
+    xz
+    libltdl
+
+Pillow
+reportlab
+pycairo
+
+wxpython
+pycups
