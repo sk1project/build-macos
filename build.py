@@ -85,8 +85,7 @@ if MAIN_BUILD:
     build(FREETYPE, PREFIX)
     build(PIXMAN, PREFIX)
     build(CAIRO, PREFIX, "--disable-xlib", "--disable-ft",
-          "--disable-test-suite", "--disable-full-testing",
-          "--enable-symbol-lookup")
+          "--disable-test-suite", "--disable-full-testing")
     build(LCMS, PREFIX)
     build(GETTEXT, PREFIX)
     build(PCRE, PREFIX, "--enable-utf", "--enable-unicode-properties")
