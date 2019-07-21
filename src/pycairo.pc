@@ -1,0 +1,12 @@
+prefix=/opt/uniconvertor
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: pycairo
+Description: Python binding for cairo graphics library
+Version: 1.18.1
+
+Requires: cairo freetype2 >= 9.7.3 
+Libs:  
+Cflags: -I${includedir}/pycairo 

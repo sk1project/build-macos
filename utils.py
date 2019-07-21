@@ -165,6 +165,7 @@ def pycairo_build(libname, *args):
         os.system('mv %s/cairo %s' % (cairo_egg_dir, PKG_DIR))
         echo('\n', to_log=True)
         rm(cairo_egg_dir)
+        shutil.copy('src/pycairo.pc', '%s/lib/pkgconfig/pycairo.pc' % UC2DIR)
 
 
 @build_decorator

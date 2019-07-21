@@ -114,6 +114,7 @@ if MAIN_BUILD:
 elif TEST_BUILD:
     pass
 elif EXT_BUILD:
+    os.environ['ARCHFLAGS'] = '-arch x86_64'
     ext_build('subproj')
 
 
