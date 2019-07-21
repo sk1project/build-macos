@@ -42,6 +42,10 @@ def main(*_args):
     run('rm -rf %s/pkgs/PIL/*.py' % UC2DIR)
 
     links = fsutils.get_symlinks(UC2DIR)
+    links += [('/opt/uniconvertor/bin/uniconvertor',
+               '/usr/local/bin/uniconvertor'),
+              ('/opt/uniconvertor/bin/uniconvertor',
+               '/usr/local/bin/uc2')]
     for _path, link in links:
         os.remove(link)
     with open('%s/symlinks' % UC2DIR, 'wb') as fileptr:
