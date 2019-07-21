@@ -201,7 +201,7 @@ def cmake_build(libname, *_args):
 
 @build_decorator
 @catcher
-def pillow_build(libname, *args):
+def pillow_build(libname, *_args):
     run('tar -xzf src/%s.tar.gz' % libname)
     os.chdir(libname)
     if not os.path.exists(PY_DIR):
@@ -222,10 +222,10 @@ def pillow_build(libname, *args):
 
 @build_decorator
 @catcher
-def ext_build(libname, *args):
+def ext_build(libname, *_args):
     if not os.path.exists('subproj'):
         mkdirs('subproj')
-    if os._exists('%s/uniconvertor' % libname):
+    if os.path.exists('%s/uniconvertor' % libname):
         rm('%s/uniconvertor' % libname)
     os.chdir('subproj')
     os.system('git clone https://github.com/sk1project/uniconvertor')

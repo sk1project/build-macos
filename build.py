@@ -57,6 +57,7 @@ PIL = "Pillow-5.4.1"
 # Build environment vars
 # ---------------------------------------------
 os.environ['MACOSX_DEPLOYMENT_TARGET'] = '10.9'
+os.environ['ARCHFLAGS'] = '-arch x86_64'
 os.environ['CPPFLAGS'] = "-I%s/include" % UC2DIR
 os.environ['LDFLAGS'] = "-L%s/lib -arch x86_64" % UC2DIR
 os.environ['CFLAGS'] = "-Os -arch x86_64"
@@ -114,7 +115,6 @@ if MAIN_BUILD:
 elif TEST_BUILD:
     pass
 elif EXT_BUILD:
-    os.environ['ARCHFLAGS'] = '-arch x86_64'
     ext_build('subproj')
 
 
