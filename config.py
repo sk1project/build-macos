@@ -41,7 +41,7 @@ VERBOSE = '-v' in sys.argv or '--verbose' in sys.argv
 
 
 PREFIX = "--prefix=%s" % UC2DIR
-TRACK = "--disable-dependency-tracking"
+TRACK = ""  # ""--disable-dependency-tracking"
 
 LOG = ' >>%s/build.log 2>>%s/build.log' % (CUR_DIR, CUR_DIR) \
     if not VERBOSE else ''
