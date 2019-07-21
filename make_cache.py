@@ -47,7 +47,12 @@ def main(*_args):
     with open('%s/symlinks' % UC2DIR, 'wb') as fileptr:
         fileptr.write(repr(links))
 
-    run('zip -ro9X cache.zip %s' % UC2DIR)
+    if not os.path.exists('./dist'):
+        mkdirs('./dist')
+    if os.path.exists('./dist/cache.zip'):
+        os.remove('./dist/cache.zip')
+
+    run('zip -ro9X dist/cache.zip %s' % UC2DIR)
     rm(UC2DIR)
     run('mv /opt/uc2 %s' % UC2DIR)
 

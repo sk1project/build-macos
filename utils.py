@@ -17,6 +17,9 @@
 # 	You should have received a copy of the GNU General Public License
 # 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import shutil
+
+import fsutils
 from config import *
 
 # ---------------------------------------------
@@ -214,3 +217,26 @@ def pillow_build(libname, *args):
         rm(PY_DIR)
         egg_info = os.path.join(PKG_DIR, 'EGG-INFO')
         rm(egg_info)
+
+
+@build_decorator
+@catcher
+def ext_build(libname, *args):
+    if not os.path.exists('subproj'):
+        mkdirs('subproj')
+    if os._exists('%s/uniconvertor' % libname):
+        rm('%s/uniconvertor' % libname)
+    os.chdir('subproj')
+    os.system('git clone https://github.com/sk1project/uniconvertor')
+    os.chdir('uniconvertor')
+    run('python setup.py build')
+    os.chdir('../../')
+    extensions = fsutils.get_files_tree('%s/uniconvertor/build' % libname, 'so')
+
+    if os.path.exists('dist/so'):
+        rm('dist/so')
+    mkdirs('dist/so')
+
+    for extension in extensions:
+        name = os.path.basename(extension)
+        shutil.copy(extension, 'dist/so/%s' % name)

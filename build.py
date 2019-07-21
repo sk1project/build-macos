@@ -111,8 +111,11 @@ if MAIN_BUILD:
     pycairo_build(PYCAIRO, PREFIX)
     reportlab_build(REPORTLAB)
     pillow_build(PIL)
-else:
+elif TEST_BUILD:
     pass
+elif EXT_BUILD:
+    ext_build('subproj')
+
 
 echo('\n')
 echo('BUILD SUCCESSFUL!', WHITE, eol=True, to_log=True)

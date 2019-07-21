@@ -25,7 +25,18 @@ PY_DIR = '%s/lib/python2.7/site-packages' % UC2DIR
 PKG_DIR = '%s/pkgs' % UC2DIR
 CUR_DIR = os.getcwd()
 
-MAIN_BUILD = '--test' not in sys.argv and '-t' not in sys.argv
+MAIN_BUILD = True
+MAKE_CACHE = TEST_BUILD = EXT_BUILD = False
+if '--make-cache' in sys.argv:
+    MAKE_CACHE = True
+    MAIN_BUILD = False
+elif '--test' in sys.argv or '-t' in sys.argv:
+    TEST_BUILD = True
+    MAIN_BUILD = False
+elif '--ext' in sys.argv or '-e' in sys.argv:
+    EXT_BUILD = True
+    MAIN_BUILD = False
+
 VERBOSE = '-v' in sys.argv or '--verbose' in sys.argv
 
 
