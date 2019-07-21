@@ -47,7 +47,8 @@ def main(*_args):
               ('/opt/uniconvertor/bin/uniconvertor',
                '/usr/local/bin/uc2')]
     for _path, link in links:
-        os.remove(link)
+        if os.path.exists(link):
+            os.remove(link)
     with open('%s/symlinks' % UC2DIR, 'wb') as fileptr:
         fileptr.write(repr(links))
 
