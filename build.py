@@ -84,7 +84,7 @@ if MAIN_BUILD:
     build(LIBPNG, PREFIX)
     build(FREETYPE, PREFIX)
     build(PIXMAN, PREFIX)
-    build(CAIRO, PREFIX, "--disable-xlib", "--disable-ft")
+    build(CAIRO, PREFIX, "--disable-xlib", "--disable-ft", "--disable-lto")
     build(LCMS, PREFIX)
     build(GETTEXT, PREFIX)
     build(PCRE, PREFIX, "--enable-utf", "--enable-unicode-properties")
